@@ -38,15 +38,21 @@ def classify_image(image: Image.Image):
 # text_color = gr.themes.Color("#FFFFFF")
 
 # # 테마 생성
-# custom_theme = gr.themes.Theme(
-#     primary_hue=primary_color,
-#     secondary_hue=background_color,
-#     neutral_hue=text_color
-# )
+custom_theme = gr.themes.Default(primary_hue="gray").set(
+    loader_color="#FF0000",
+    slider_color="#FF0000",
+    body_background_fill="#35363A", # 배경색
+    block_background_fill="#3C4043",
+    button_primary_background_fill="#6A84A6", # 버튼 색상
+    button_primary_background_fill_hover="#88B6F2", # 버튼 눌렀을 때 색상
+    button_primary_text_color="#D7D8D9",
+    panel_background_fill="#121212", # 둘러싸고 있는 색상
+    block_info_text_color="#D7D8D9" 
+)
 
 image_html = (
             "<div >"
-            "<img  src='file/shoekream_title.png'"
+            "<img src='file/shoekream_image.png'"
             + "</div>"
     )
 
@@ -57,6 +63,6 @@ interface = gr.Interface(fn=classify_image,
                          inputs="image", 
                          outputs=gr.Label(num_top_classes=5),
                          examples=['airplane.jpeg', 'car.jpeg'],
-                         description=image_html)   
-                        #  theme=custom_theme
+                         description=image_html,  
+                         theme=custom_theme)
 interface.launch()
