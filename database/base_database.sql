@@ -5,7 +5,7 @@ CREATE TABLE shoes (
     original_price_with_currency INT,
     date_released DATE,
     colorway VARCHAR(255),
-    gender ENUM('male', 'female', 'unisex'),
+    gender ENUM('men', 'women', 'unisex'),
     brand VARCHAR(255),
     wish_count INT DEFAULT 0,
     review_count INT DEFAULT 0,
